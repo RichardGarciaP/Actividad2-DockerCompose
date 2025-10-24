@@ -1,0 +1,32 @@
+services:
+  backend:
+    container_name: backend-fintech
+    build: ./backend
+    ports:
+      - 5000:5000
+    depends_on:
+      - database
+    networks:
+      - app
+  frontend:
+    container_name: frontend-fintech
+    build: ./frontend
+    ports:
+      - 8080:80
+    depends_on:
+      - backend
+    networks:
+      - app
+  database:
+    container_name: mongodb
+    image: mongo
+    volumes:
+      - database:/data/db
+    networks:
+      - app
+
+volumes:
+  database:
+networks:
+  app:
+    driver: bridge
