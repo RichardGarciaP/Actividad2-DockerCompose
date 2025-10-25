@@ -8,6 +8,6 @@ RUN npm ci
 COPY src src
 
 EXPOSE 3000
-RUN pwd
 
 CMD ["node", "src/server.js"]
+
