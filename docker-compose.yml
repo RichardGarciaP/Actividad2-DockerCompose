@@ -3,7 +3,7 @@ services:
     container_name: backend-fintech
     build: ./backend
     ports:
-      - 5000:5000
+      - 3000:3000
     depends_on:
       - database
     networks:
